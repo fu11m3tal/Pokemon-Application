@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fitness', { useUnifiedTopology: true },  { useNewUrlParser: true })
+
+mongoose.connect('mongodb://localhost/pokemon', {  useNewUrlParser: true, useUnifiedTopology: true, reconnectInterval: 250, family: 4, useCreateIndex: true }).
+catch(error => console.log(error))
 
 const db = mongoose.connection;
 

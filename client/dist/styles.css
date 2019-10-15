@@ -1,0 +1,82 @@
+.pokemonContainer {
+  width: 250px;
+  display: flex;
+  align-content: center;
+  border-style: solid;
+  border-color: black;
+}
+
+button {
+  width: 75px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  background-color: orange;
+  /* border-style: solid;
+  border-color: black;
+  border-width: 3px; */
+}
+
+body {
+  font: 1em sans-serif;
+  text-align: center;
+}
+.stage {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+.box {
+  align-self: flex-end;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-color: transparent;
+  height: 96px;
+  width: 96px;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+}
+.bounce-4 {
+  animation-name: bounce-4;
+  animation-timing-function: ease;
+}
+@keyframes bounce-4 {
+  0%   { transform: scale(1,1)    translateX(0)
+  translateY(0); }
+  10%  { transform: scale(1.1,1) translateX(0)
+  translateY(0); }
+  30%  { transform: scale(1,1.1) translateX(0)
+  translateY(-7px); }
+  50%  { transform: scale(1,1)    translateX(0)
+    translateY(0); }
+  100% { transform: scale(1,1)    translateX(0)
+    translateY(0); }
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}

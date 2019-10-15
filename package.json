@@ -6,13 +6,19 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "csv": "node database/csv/pokemonData.js",
+    "seed": "mongoimport --db pokemon --collection Pokemon --type csv --headerline --file /Users/syoh/Desktop/Projects/Pokemon-Application/database/csv/pokemon.csv"
   },
   "author": "Anthony Pecchillo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
+    "csv-writer": "^1.5.0",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "csv-write-stream": "^2.0.0",
     "jquery": "^3.4.1",
     "react": "^16.3.1",
     "react-bootstrap": "^1.0.0-beta.12",
