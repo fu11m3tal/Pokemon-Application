@@ -1,7 +1,7 @@
 import React from 'react';
 import PokemonListEntry from './PokemonListEntry.jsx'
 
-const PokemonList = ({ pokemon, list, removePokemon }) => {
+const PokemonList = ({ pokemon, list, removePokemon, showModal }) => {
   return (
     <div>
       <h1>List</h1>
@@ -10,6 +10,7 @@ const PokemonList = ({ pokemon, list, removePokemon }) => {
           key={index} 
           pokemon={pokemon} 
           removePokemon={removePokemon}
+          showModal={showModal}
         />
       )}
     </div>

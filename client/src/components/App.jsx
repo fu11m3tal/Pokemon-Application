@@ -22,8 +22,11 @@ class App extends React.Component {
     this.hideModal = this.hideModal.bind(this);
   }
 
-  showModal() {
-    this.setState({ show: true });
+  showModal(pokemon) {
+    this.setState({ 
+      pokemon: pokemon, 
+      show: true 
+    });
   };
 
   hideModal() {
@@ -86,9 +89,10 @@ class App extends React.Component {
       <div>
         <h1>Poke-venture</h1>
         <h1>React Modal</h1>
-        <Modal show={show} handleClose={hideModal}>
-          <p>Modal</p>
-          <p>Data</p>
+        <Modal 
+          show={show} 
+          handleClose={hideModal} 
+          pokemon={pokemon}>
         </Modal>
         <button type="button" onClick={showModal}>
           open
@@ -105,6 +109,7 @@ class App extends React.Component {
           pokemon={pokemon} 
           list={list}
           removePokemon={removePokemon}
+          showModal={showModal}
         />
       </div>
     )
