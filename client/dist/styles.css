@@ -80,3 +80,38 @@ body {
 .display-none {
   display: none;
 }
+
+.column {
+  background-color: black;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* handles all inside the board */
+.board {
+  
+}
+
+/* handles all rows */
+.row {
+}
+
+.squareOff {
+  border-style: solid;
+  border-color: black;
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+
+.squareOn {
+
+}

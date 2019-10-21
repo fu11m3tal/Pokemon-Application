@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import PokemonSearch from './Search.jsx'
-import SearchList from './SearchList.jsx'
-import PokemonList from './PokemonList.jsx'
-import Modal from './Modal.jsx'
+import PokemonSearch from './Search.jsx';
+import SearchList from './SearchList.jsx';
+import PokemonList from './PokemonList.jsx';
+import Modal from './Modal.jsx';
+import Board from './Board.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -88,15 +89,13 @@ class App extends React.Component {
     return (
       <div>
         <h1>Poke-venture</h1>
+        <Board/>
         <h1>React Modal</h1>
         <Modal 
           show={show} 
           handleClose={hideModal} 
           pokemon={pokemon}>
         </Modal>
-        <button type="button" onClick={showModal}>
-          open
-        </button>
         <PokemonSearch 
           getPokemon={getPokemon}
         />
