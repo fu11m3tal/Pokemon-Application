@@ -22,10 +22,30 @@ class Board extends React.Component {
       }
     }
     this.handleSquareClick = this.handleSquareClick.bind(this);
+    this.handleSquareColor = this.handleSquareColor.bind(this);
+    this.handleBoardUpdate = this.handleBoardUpdate.bind(this);
   }
 
   handleSquareClick(e) {
-    console.log(e.target.id)
+    var { master, one, two} = this.state;
+    var coordinates = e.target.id.split('');
+    var row = coordinates[0];
+    var column = Number(coordinates[1])
+    var updatedBoard = master;
+    this.handleBoardUpdate(row, column)
+  }
+
+  handleBoardUpdate(row, column) {
+    var { master, one, two} = this.state;
+    var updatedMaster = master;
+    updatedMaster[row][column] = 1;
+    this.setState = ({
+      master: updatedMaster
+    })
+  }
+
+  handleSquareColor(e) {
+
   }
 
   componentDidMount() {
