@@ -114,7 +114,8 @@ body {
 
 .squareOn {
   border-style: solid;
-  border-color: red;
+  border-color: black;
+  background-color: orange;
   float: left;
   height: 200px;
   width: 200px;

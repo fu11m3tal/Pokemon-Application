@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import BoardRow from './BoardRow.jsx';
+import BoardSquare from './BoardSquare.jsx'
+
 
 class Board extends React.Component {
   constructor(props) {
@@ -19,7 +22,8 @@ class Board extends React.Component {
         a: [0,0,0],
         b: [0,0,0],
         c: [0,0,0]
-      }
+      },
+      show: false
     }
     this.handleSquareClick = this.handleSquareClick.bind(this);
     this.handleSquareColor = this.handleSquareColor.bind(this);
@@ -27,48 +31,43 @@ class Board extends React.Component {
   }
 
   handleSquareClick(e) {
+    console.log(e.target)
     var { master, one, two} = this.state;
     var coordinates = e.target.id.split('');
     var row = coordinates[0];
-    var column = Number(coordinates[1])
+    var column = Number(coordinates[1]);
     var updatedBoard = master;
-    this.handleBoardUpdate(row, column)
+    this.handleBoardUpdate(row, column);
+    this.handleSquareColor(row, column);
   }
 
   handleBoardUpdate(row, column) {
-    var { master, one, two} = this.state;
+    var { master, one, two, show } = this.state;
     var updatedMaster = master;
     updatedMaster[row][column] = 1;
+    var show = !show
     this.setState = ({
-      master: updatedMaster
+      master: updatedMaster,
+      show: true
     })
   }
 
   handleSquareColor(e) {
-
+    
   }
 
   componentDidMount() {
   }
 
   render() { 
+    var {master, one, two, show} = this.state;
+    var {handleSquareClick} = this;
+    var color = show ? "squareOn" : "squareOff";
     return (
       <div className="board">
-        <div className="row" id="a">
-          <div className="squareOff" id="a0" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="a1" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="a2" onClick={this.handleSquareClick}></div>
-        </div>
-        <div className="row" id="b">
-          <div className="squareOff" id="b0" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="b1" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="b2" onClick={this.handleSquareClick}></div>
-        </div>
-        <div className="row" id="c">
-          <div className="squareOff" id="c0" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="c1" onClick={this.handleSquareClick}></div>
-          <div className="squareOff" id="c2" onClick={this.handleSquareClick}></div>
-        </div>
+        <BoardRow rowId="a" row={master.a} handleSquareClick={this.handleSquareClick}/>
+        <BoardRow rowId="b" row={master.b} handleSquareClick={this.handleSquareClick}/>
+        <BoardRow rowId="c" row={master.c} handleSquareClick={this.handleSquareClick}/> 
       </div>
     )
   }
